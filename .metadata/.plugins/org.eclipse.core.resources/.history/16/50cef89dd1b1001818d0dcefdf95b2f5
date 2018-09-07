@@ -1,0 +1,161 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.SocketAddress;
+import java.net.SocketTimeoutException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class httpConnection {
+	public static void main(String[] args) throws Exception {
+		String server = "http://localhost:8080";
+		URLConnection hpCon = null;
+		try {
+		    hpCon = new URL(server).openConnection();
+		    hpCon.connect();
+		    System.out.println("Working fine!");
+		    log(isSocketAliveUitlitybyCrunchify("localhost", 8080));
+		    log(isSocketAliveUitlitybyCrunchify("localhost", 8081));
+		    //shut_server("D:/zarrar/softwares/apache-tomcat-8.0.53/bin");
+		    //tomcat(8005);
+		    renameFile();
+		    System.out.println("Working .....");
+		} catch (Exception e) {
+			e.printStackTrace();
+		    // Anything you want to do when there is a failure
+		}	
+			
+	}
+	public static void renameFile() 
+	{
+		PrintWriter writer = null;
+		try {
+			writer = new PrintWriter("C:/Users/alihasan/Desktop/file.txt", "UTF-8");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try
+		{
+		writer.println("The first line");
+		writer.println("The second line");
+		
+		String FILENAME = "D:/zarrar/softwares/apache-tomcat-7.0.90/logs";
+		File file = new File(FILENAME);
+		String filesName = ""; 
+		String s = "";
+		for (File fileEntry : file.listFiles())
+		{
+	         filesName = fileEntry.getName();
+	            System.out.println(filesName);
+	         s = filesName.substring(0,8);
+	         if (s.equals("catalina"))
+	         {
+	        	 break;
+	         }
+	         
+	    }
+		String FILE_PATH = "D:/zarrar/softwares/apache-tomcat-7.0.90/logs/";
+		String FILE_EXTENSION = ".log";
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss"); // add S if you need milliseconds
+		String filename =  df.format(new Date()) + FILE_EXTENSION;	
+		//filesName = filesName.substring(0,19);
+		File oldfile = new File(FILE_PATH + filesName );
+
+        File newfile = new File(FILE_PATH + filename + FILE_EXTENSION);
+        if(oldfile.renameTo(newfile))
+        {
+            System.out.println("File renamed");
+        }
+		
+		writer.println("Working" );
+		writer.close();
+		}catch (Exception ex)
+		{
+			ex.printStackTrace();
+		}
+	}
+	public static void tomcat(int port){
+	    try{
+	        Socket s = new Socket("localhost",port);
+	        if(s.isConnected()){
+	        	System.out.println("connected");
+	            PrintWriter print = new PrintWriter(s.getOutputStream(),true);
+	            print.println("SHUTDOWN"); /*Command to stop tomcat according to the line "<Server port="8005" shutdown="SHUTDOWN">" in catalina_home/conf/server.xml*/
+	            print.close();
+	            s.close();
+	        }
+	        else
+	        {
+	        	System.out.println("Not connected");
+	        }
+	      //  Runtime.getRuntime().exec(System.getProperty("catalina.home")+"\\bin\\startup.bat");  /*Instruction to run tomcat after it gets stopped*/
+	    }catch (Exception ex){
+	        ex.printStackTrace();
+	    }
+	}
+	public static void shut_server(String lien) 
+	{
+	      try {
+	
+	        Process child = Runtime.getRuntime().exec(lien+"/shutdown.sh");
+	        System.out.println("Serveur est atteins");
+	    } catch (IOException ex) {
+	      //  Logger.getLogger(Installation.class.getName()).log(Level.SEVERE, null, ex);
+	        System.out.println("erreur de demarrage");
+	    }
+	}
+	
+	public static boolean isSocketAliveUitlitybyCrunchify(String hostName, int port) {
+		boolean isAlive = false;
+ 
+		// Creates a socket address from a hostname and a port number
+		SocketAddress socketAddress = new InetSocketAddress(hostName, port);
+		Socket socket = new Socket();
+ 
+		// Timeout required - it's in milliseconds
+		int timeout = 2000;
+ 
+		log("hostName: " + hostName + ", port: " + port);
+		try {
+			socket.connect(socketAddress, timeout);
+			//socket.
+			//ServerSocket.accept();
+			socket.close();
+			isAlive = true;
+ 
+		} catch (SocketTimeoutException exception) {
+			System.out.println("SocketTimeoutException " + hostName + ":" + port + ". " + exception.getMessage());
+		} catch (IOException exception) {
+			System.out.println(
+					"IOException - Unable to connect to " + hostName + ":" + port + ". " + exception.getMessage());
+		}
+		return isAlive;
+	}
+ 
+	// Simple log utility
+	private static void log(String string) {
+		System.out.println(string);
+	}
+ 
+	// Simple log utility returns boolean result
+	private static void log(boolean isAlive) {
+		System.out.println("isAlive result: " + isAlive + "\n");
+	}
+
+}

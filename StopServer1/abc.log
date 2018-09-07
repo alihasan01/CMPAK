@@ -1,0 +1,92 @@
+Sep 06, 2018 2:38:14 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server version:        Apache Tomcat/7.0.90
+Sep 06, 2018 2:38:14 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server built:          Jul 2 2018 17:05:37 UTC
+Sep 06, 2018 2:38:14 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Server number:         7.0.90.0
+Sep 06, 2018 2:38:14 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Name:               Windows 10
+Sep 06, 2018 2:38:14 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: OS Version:            10.0
+Sep 06, 2018 2:38:14 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Architecture:          amd64
+Sep 06, 2018 2:38:14 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Java Home:             C:\Program Files\Java\jdk1.8.0_171\jre
+Sep 06, 2018 2:38:14 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Version:           1.8.0_171-b11
+Sep 06, 2018 2:38:14 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: JVM Vendor:            Oracle Corporation
+Sep 06, 2018 2:38:14 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_BASE:         D:\zarrar\softwares\apache-tomcat-7.0.90
+Sep 06, 2018 2:38:14 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: CATALINA_HOME:         D:\zarrar\softwares\apache-tomcat-7.0.90
+Sep 06, 2018 2:38:14 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.config.file=D:\zarrar\softwares\apache-tomcat-7.0.90\conf\logging.properties
+Sep 06, 2018 2:38:14 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+Sep 06, 2018 2:38:14 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+Sep 06, 2018 2:38:14 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dignore.endorsed.dirs=
+Sep 06, 2018 2:38:14 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.base=D:\zarrar\softwares\apache-tomcat-7.0.90
+Sep 06, 2018 2:38:14 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Dcatalina.home=D:\zarrar\softwares\apache-tomcat-7.0.90
+Sep 06, 2018 2:38:14 PM org.apache.catalina.startup.VersionLoggerListener log
+INFO: Command line argument: -Djava.io.tmpdir=D:\zarrar\softwares\apache-tomcat-7.0.90\temp
+Sep 06, 2018 2:38:14 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.8.0_171\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Users\alihasan\AppData\Local\Microsoft\WindowsApps;;.
+Sep 06, 2018 2:38:14 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Sep 06, 2018 2:38:14 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+Sep 06, 2018 2:38:14 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 694 ms
+Sep 06, 2018 2:38:14 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Sep 06, 2018 2:38:14 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.90
+Sep 06, 2018 2:38:14 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\zarrar\softwares\apache-tomcat-7.0.90\webapps\docs
+Sep 06, 2018 2:38:15 PM org.apache.catalina.util.SessionIdGeneratorBase createSecureRandom
+WARNING: Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [200] milliseconds.
+Sep 06, 2018 2:38:15 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\zarrar\softwares\apache-tomcat-7.0.90\webapps\docs has finished in 659 ms
+Sep 06, 2018 2:38:15 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\zarrar\softwares\apache-tomcat-7.0.90\webapps\examples
+Sep 06, 2018 2:38:16 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\zarrar\softwares\apache-tomcat-7.0.90\webapps\examples has finished in 529 ms
+Sep 06, 2018 2:38:16 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\zarrar\softwares\apache-tomcat-7.0.90\webapps\host-manager
+Sep 06, 2018 2:38:16 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\zarrar\softwares\apache-tomcat-7.0.90\webapps\host-manager has finished in 148 ms
+Sep 06, 2018 2:38:16 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\zarrar\softwares\apache-tomcat-7.0.90\webapps\manager
+Sep 06, 2018 2:38:16 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\zarrar\softwares\apache-tomcat-7.0.90\webapps\manager has finished in 73 ms
+Sep 06, 2018 2:38:16 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory D:\zarrar\softwares\apache-tomcat-7.0.90\webapps\ROOT
+Sep 06, 2018 2:38:16 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory D:\zarrar\softwares\apache-tomcat-7.0.90\webapps\ROOT has finished in 46 ms
+Sep 06, 2018 2:38:16 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+Sep 06, 2018 2:38:16 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-bio-8009"]
+Sep 06, 2018 2:38:16 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1565 ms
+Sep 06, 2018 2:38:22 PM org.apache.catalina.core.StandardServer await
+INFO: A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+Sep 06, 2018 2:38:22 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-bio-8080"]
+Sep 06, 2018 2:38:22 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-bio-8009"]
+Sep 06, 2018 2:38:22 PM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+Sep 06, 2018 2:38:22 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-bio-8080"]
+Sep 06, 2018 2:38:22 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-bio-8009"]
+Sep 06, 2018 2:38:22 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-bio-8080"]
+Sep 06, 2018 2:38:22 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["ajp-bio-8009"]

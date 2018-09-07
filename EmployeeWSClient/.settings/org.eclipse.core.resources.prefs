@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//src/com/employee/ws/Employee.java=UTF-8
+encoding//src/com/employee/ws/EmployeeService.java=UTF-8
+encoding//src/com/employee/ws/EmployeeServiceLocator.java=UTF-8
+encoding//src/com/employee/ws/EmployeeSoapBindingStub.java=UTF-8
+encoding//src/service/EmployeeImpl.java=UTF-8
+encoding//src/service/EmployeeImplService.java=UTF-8
+encoding//src/service/EmployeeImplServiceLocator.java=UTF-8
+encoding//src/service/EmployeeImplSoapBindingStub.java=UTF-8

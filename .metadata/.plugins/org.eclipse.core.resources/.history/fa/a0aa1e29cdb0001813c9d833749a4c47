@@ -1,0 +1,213 @@
+package service;
+
+import java.awt.List;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
+import javax.jws.WebService;
+import com.employee.ws.Employee;
+
+@WebService
+public class EmployeeImpl {
+
+	
+	private Employee emp;
+	public EmployeeImpl()
+	{
+		emp = new Employee();
+	}
+	public void setEmployee(Employee emp) {
+		
+		
+		//Reading file to set the ID of the employee
+		String FILENAME = "employee.txt";
+		String currentUsersHomeDir = System.getProperty("user.home");
+		String myFile = currentUsersHomeDir + File.separator + FILENAME;
+		File file = new File(myFile);
+		 
+		BufferedReader br = null;
+		try {
+			br = new BufferedReader(new FileReader(file));
+		} catch (FileNotFoundException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+	    String st = "";
+	    String id = "";
+	    try {
+			while ((st = br.readLine()) != null)
+			{
+			  String array1[]= st.split("#");
+			  for (int i = 0 ; i < array1.length ; i++)
+			  {
+				  if (i == 0)
+				  {
+					  id = array1[i];
+				  }
+			  }
+			}
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	    System.out.println("String is : " + st);
+	    System.out.println("id is : " + id);
+	    id = Integer.toString(Integer.parseInt(id)+1); 
+
+		BufferedWriter bw = null;
+		FileWriter fw = null;
+
+		try {
+			FILENAME = "employee.txt";
+			currentUsersHomeDir = System.getProperty("user.home");
+			myFile = currentUsersHomeDir + File.separator + FILENAME;
+			file = new File(myFile);
+			if (file.exists())
+			{
+				fw = new FileWriter(myFile, true);
+				bw = new BufferedWriter(fw);
+				bw.write(id + "#" + emp.getName() + "#" + emp.getDesignation() + "#" + emp.getAge() );
+				bw.newLine();
+				System.out.println("Service has done work!");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (bw != null)
+					bw.close();
+				if (fw != null)
+					fw.close();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+
+		this.emp = emp;
+	}
+	public ArrayList<Employee> getEmployee() {
+		
+		ArrayList<Employee> employeeList = new ArrayList<Employee>();
+		try
+		{
+			String FILENAME = "employee.txt";
+			String currentUsersHomeDir = System.getProperty("user.home");
+			String myFile = currentUsersHomeDir + File.separator + FILENAME;
+			File file = new File(myFile);
+			 
+			BufferedReader br = new BufferedReader(new FileReader(file));
+		    String st;
+		    while ((st = br.readLine()) != null)
+		    {
+		      Employee employees = new Employee();
+			  String array1[]= st.split("#");
+			  for (int i = 0 ; i < array1.length ; i++)
+			  {
+				  if ( i == 0)
+				  {
+					  employees.setID(array1[i]);
+				  }
+				  else if (i == 1)
+				  {
+					  employees.setName(array1[i]);
+				  }
+				  else if(i == 2 )
+				  {
+					  employees.setDesignation(array1[i]);
+				  }
+				  else if (i == 3)
+				  {	  
+					  employees.setAge(array1[i]);
+				  }
+				  System.out.print(array1[i] + " ");
+			  }
+			  employeeList.add(employees);
+			  System.out.println();
+		    }
+			}catch(Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			return employeeList;
+	}
+	public boolean deleteRecord(String str) throws IOException
+	{
+		
+		System.out.println("********************************************************");
+		System.out.println("Id to delete is " + str);
+		String FILENAME = "employee.txt";
+		String currentUsersHomeDir = System.getProperty("user.home");
+		String myFile = currentUsersHomeDir + File.separator + FILENAME;
+		PrintWriter pw = new PrintWriter("output.txt"); 
+	    // BufferedReader object for input.txt
+	    BufferedReader br1 = new BufferedReader(new FileReader(myFile));
+	    String idFound = "";  
+	    int strLength = str.length();
+	    char[] chars = str.toCharArray();
+	   String line1 = br1.readLine();    
+	        // loop for each line of input.txt
+	        while(line1 != null)
+	        {
+	            boolean flag = false;
+	            String array1[]= line1.split("#");
+				  for (int i = 0 ; i < array1.length ; i++)
+				  {
+					  if ( i == 0)
+					  {
+						  idFound = array1[i];
+						  if (Character.getNumericValue(chars[strLength -1]) ==  Integer.parseInt(idFound))
+						  {
+							  System.out.print(Character.getNumericValue(chars[strLength -1]) + " " +  Integer.parseInt(idFound));
+			                    flag = true;
+						  }
+						  else 
+						  {
+							  System.out.println("Failed");
+							  System.out.print(Character.getNumericValue(chars[strLength -1]) + " " +  Integer.parseInt(idFound));
+ 
+						  }
+					  }
+				  }
+	            // BufferedReader object for delete.txt
+	           // BufferedReader br2 = new BufferedReader(new FileReader("delete.txt"));
+	             
+	            //String line2 = br2.readLine();
+	             
+	            // loop for each line of delete.txt
+	            while(line2 != null)
+	            {
+	                if(line1.equals(line2))
+	                {
+	                    flag = true;
+	                    break;
+	                }
+	                 
+	                line2 = br2.readLine();
+	            }
+	             
+	            // if flag = false
+	            // write line of input.txt to output.txt
+	            if(!flag)
+	                pw.println(line1);
+	             
+	            line1 = br1.readLine();
+	             
+	        }
+	         
+	        pw.flush();
+	         
+	        // closing resources
+	        br1.close();
+	        pw.close();
+	         
+	        System.out.println("File operation performed successfully");
+	    }
+
+}

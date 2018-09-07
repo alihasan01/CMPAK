@@ -1,0 +1,16 @@
+import java.io.PrintWriter;
+import java.net.Socket;
+
+public class StartSymmetricEngine {
+	private static String SERVER = "localhost"; 
+	public static void main(String[] args) throws Exception {
+		try {
+
+	        Process child = Runtime.getRuntime().exec("D:\zarrar\softwares\apache-tomcat-8.0.53\bin"+"/shutdown.sh");
+	        System.out.println("Serveur est atteins");
+	    } catch (IOException ex) {
+	        Logger.getLogger(Installation.class.getName()).log(Level.SEVERE, null, ex);
+	        System.out.println("erreur de demarrage");
+	    }
+	    }
+}
